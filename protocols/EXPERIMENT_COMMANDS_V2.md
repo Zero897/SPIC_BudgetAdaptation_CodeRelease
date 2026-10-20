@@ -137,7 +137,7 @@ For a short implementation smoke test, add `--smoke_test --epochs 1
 --eval_every 1 --train_max_batches 2 --eval_max_batches 2` and use a separate
 save directory containing the experiment ID, seed, and the word `smoke`.
 
-## First runtime gate: A0 two-batch smoke test
+## First runtime gate: A0 accumulation smoke test
 
 Run this before any 40-epoch experiment:
 
@@ -148,9 +148,9 @@ python train_cm_dehazeformer_v2_residual.py \
   --val_lq "$VAL/lq" --val_ir "$VAL/ir" --val_gt "$VAL/gt" \
   --save_dir "$RUNS/smoke/A0_core_residual/seed${SEED}" \
   --backbone b --pretrained "$PRETRAINED" \
-  --size 256 --epochs 1 --batch 2 --workers 0 \
+  --size 256 --epochs 1 --batch 2 --grad_accum_steps 8 --workers 0 \
   --lr_base 0 --lr_new 1e-4 --freeze_base_epochs 1 \
-  --eval_every 1 --train_max_batches 2 --eval_max_batches 2 \
+  --eval_every 1 --train_max_batches 8 --eval_max_batches 2 \
   --init_gamma 0.01 --adapter_variant fscatterres \
   --ablation wo_ir_physics --wo_gate \
   --refiner_width 24 --refiner_blocks 4 \

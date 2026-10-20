@@ -1,4 +1,4 @@
-# SPIC Budget Adaptation Code Release (draft)
+# SPIC Budget Adaptation Code Release
 
 Curated source snapshot for the SPIC manuscript on budgeted RGB restoration adaptation. This repository contains project-owned model wrappers, training and evaluation entry points, smoke-generation code, and experiment protocols. It does not contain DehazeFormer, Restormer, or FFA-Net upstream source, datasets, checkpoints, or experiment outputs.
 
@@ -8,6 +8,12 @@ Curated source snapshot for the SPIC manuscript on budgeted RGB restoration adap
 - Matched native partial fine-tuning control (M-FT).
 - Post-FT RGB adapter extensions on Restormer and FFA-Net.
 - Stratified and locked synthetic-smoke evaluation, RRSHID zero-shot evaluation, A2I2 vehicle detection, and efficiency measurement.
+
+## Reproduction scope
+
+This repository releases the project-owned code paths and protocols; inclusion of an experiment's code does not mean that every manuscript result has been rerun from this repository. During release verification, one single-seed A0 adapter training run completed for 40 epochs on AutoDL. Its saved configuration and validation history were checked, and the recorded hashes for the training source files match this release. This verifies that specific training path only. It is not a claim that all experiments or reported results in the manuscript have been reproduced.
+
+Datasets, pretrained weights, upstream model source, and experiment outputs are not bundled. Reproducing other experiment arms requires those external assets, compatible runtime setup, and potentially substantial compute; see the data, provenance, and environment notes below.
 
 ## Main entry points
 
@@ -32,9 +38,15 @@ The principal trainer accepts explicit paths for the training data, validation f
 
 ## Environment
 
-The available run records identify Python 3.9, PyTorch 2.1.2 with CUDA 12.1, and OpenCV 4.12.0. `requirements.txt` is a preliminary package list; versions for the remaining packages have not been recovered, so it is not a complete environment lock. See `ENVIRONMENT.md`.
+The AutoDL runtime probe identifies Python 3.9.25, PyTorch 2.1.2+cu121, and CUDA 12.1. Exact package inventories are archived under `environment/`; they contain conflicting Torch and overlapping OpenCV metadata, so they are not a clean portable lock. The clean target pins OpenCV 4.11.0.86 to remain compatible with NumPy 1.26.4 and PyTorch 2.1.2. The successful A0 run does not validate a fresh installation from the dependency files; a full transitive lock is not included. See `ENVIRONMENT.md`.
+
+```bash
+conda env create -f environment.yml
+conda activate spic-budget-adapt
+python -m pip install -r requirements.txt
+```
 
 ## Release status
 
-This is a local preparation repository, not yet a public-ready release. See `RELEASE_STATUS.md`. No project license has been chosen; keep the repository private until the authors decide reuse terms.
+Original project-authored files are licensed under MIT. Third-party source, weights, and data remain under their own terms; the experiment-matched Restormer source commit is non-commercial and FFA-Net has no explicit license grant at the identified commit. These third-party sources and weights are not redistributed. Review `THIRD_PARTY_NOTICES.md` and `RELEASE_STATUS.md` before using those branches.
 

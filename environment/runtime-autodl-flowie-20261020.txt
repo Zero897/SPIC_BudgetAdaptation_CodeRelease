@@ -1,0 +1,5 @@
+python=3.9.25
+torch=2.1.2+cu121
+cuda=12.1
+torchvision=0.16.2+cu121
+opencv=4.12.0
