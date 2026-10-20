@@ -1,0 +1,33 @@
+# Data, weights, checkpoints, and outputs
+/data/dataset/
+/data/raw/
+/weights/
+/checkpoints/
+/runs*/
+/results*/
+/analysis-output/
+/delivery/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.log
+*.tar.gz
+*.zip
+
+# External upstream source trees: download separately, do not commit
+/DehazeFormer-main/
+/Restormer/
+/FFA-Net-master/
+/external/
+
+# Python/editor artifacts
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Locked-test launch manifest is intentionally not part of this release snapshot
+/run_final_test_v2_queue.sh

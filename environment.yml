@@ -1,0 +1,21 @@
+# Provisional environment from the recorded AutoDL stack; not a full lock.
+name: spic-budget-adapt
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pytorch=2.1.2
+  - torchvision=0.16.2
+  - pytorch-cuda=12.1
+  - numpy
+  - opencv
+  - tqdm
+  - pip
+  - pip:
+      - lpips
+      - timm
+      - tensorboard
+      - einops
+      - scikit-image

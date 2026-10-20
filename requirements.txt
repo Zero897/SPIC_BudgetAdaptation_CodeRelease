@@ -1,0 +1,11 @@
+# Preliminary dependency list only; see ENVIRONMENT.md for known versions and gaps.
+numpy
+opencv-python-headless==4.12.0.88
+torch==2.1.2
+torchvision==0.16.2
+timm
+lpips
+tensorboard
+tqdm
+einops
+scikit-image
