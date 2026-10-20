@@ -20,9 +20,13 @@ Curated source snapshot for the SPIC manuscript on budgeted RGB restoration adap
 - `benchmark_protocol_v2_efficiency_v1.py`: efficiency measurements.
 - `generate_fixed_testset.py`, `generate_fixed_valset.py`: smoke data generation and fixed validation set.
 
+## Source and checkpoint provenance
+
+See `UPSTREAM_VERSIONS.md` for file-verified upstream references and license findings. See `CHECKPOINT_PROVENANCE.md` for the checkpoint hashes and origins that are supported by the archived records. The project `LICENSE` applies only to original project-authored files.
+
 ## External assets and data
 
-Obtain model source and checkpoints separately from the upstream providers listed in `THIRD_PARTY_NOTICES.md`; this project intentionally does not vendor them. Obtain DroneVehicle, RRSHID, and A2I2-Haze from the original providers under their terms. No images, labels, generated samples, or frozen evaluation manifests are included. See `DATASET_NOTICE.md`.
+Obtain model source and checkpoints separately from the upstream providers listed in `THIRD_PARTY_NOTICES.md`; this project intentionally does not vendor them. The FFA-Net source identity currently has no explicit upstream license grant, and Restormer's experiment-matched source commit is non-commercial; review `UPSTREAM_VERSIONS.md` before using those branches. Obtain DroneVehicle, RRSHID, and A2I2-Haze from the original providers under their terms. No images, labels, generated samples, or frozen evaluation manifests are included. See `DATASET_NOTICE.md`.
 
 The principal trainer accepts explicit paths for the training data, validation folders, pretrained checkpoint, and output directory. Historical protocol documents are under `protocols/`; some retain AutoDL paths and require adaptation before direct use.
 
