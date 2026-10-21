@@ -8,6 +8,7 @@ Curated source snapshot for the SPIC manuscript on budgeted RGB restoration adap
 - Matched native partial fine-tuning control (M-FT).
 - Post-FT RGB adapter extensions on Restormer and FFA-Net.
 - Stratified and locked synthetic-smoke evaluation, RRSHID zero-shot evaluation, A2I2 vehicle detection, and efficiency measurement.
+- Follow-up FT smoke-range experiment, with its source snapshot, protocol, and summarized paired results in [`protocols/FT_NightVD_Support_v1/`](protocols/FT_NightVD_Support_v1/).
 
 ## Reproduction scope
 
@@ -34,7 +35,7 @@ See `UPSTREAM_VERSIONS.md` for file-verified upstream references and license fin
 
 Obtain model source and checkpoints separately from the upstream providers listed in `THIRD_PARTY_NOTICES.md`; this project intentionally does not vendor them. The FFA-Net source identity currently has no explicit upstream license grant, and Restormer's experiment-matched source commit is non-commercial; review `UPSTREAM_VERSIONS.md` before using those branches. Obtain DroneVehicle, RRSHID, and A2I2-Haze from the original providers under their terms. No images, labels, generated samples, or frozen evaluation manifests are included. See `DATASET_NOTICE.md`.
 
-The principal trainer accepts explicit paths for the training data, validation folders, pretrained checkpoint, and output directory. Historical protocol documents are under `protocols/`; some retain AutoDL paths and require adaptation before direct use.
+The principal trainer accepts explicit paths for the training data, validation folders, pretrained checkpoint, and output directory. Historical protocol documents are under `protocols/`; some retain AutoDL paths and require adaptation before direct use. The FT night-range package is an archived follow-up experiment, not a standalone reproduction environment; its bundled run scripts expect the original CrossFlowIE layout and external data, checkpoint, and upstream source.
 
 ## Environment
 
